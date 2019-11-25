@@ -1,0 +1,37 @@
+package passwordprotection;
+
+
+public class Passdatabase {
+
+	public Management getManagement(int finance) {
+//Link class to main class 'Management' to input what tips the user wants to see.
+	   
+		if(finance == 1) {
+        return new Management("Check your bank's interest rate for credit. "
+        		+ "Sometimes hidden fees is the reason bringing people into debt");
+//Else if Statements for each value; 
+        //add line breaks for each piece of information to separate
+    
+	} else if (finance == 2) {
+        return new Management("Allocate at least 20% of your income toward "
+        		+ "financial priorities. \nBudget about 30% to lifestyle spending.");
+    
+    } else if (finance == 3) {
+        return new Management("Complete yout taxes early to ensure you get the returns on time. "
+        		+ "\nKeep your savings out of your checking account.");
+    
+    } else if (finance == 4) {
+        return new Management("Rebalance your porfolio at least once a year. \n "
+        		+"Set budgets and keep a fixed amount in the bank at all times."); 
+    
+    } else if (finance == 5) {
+        return new Management("If you are in debt, the best way out is to start small then work "
+        		+ "your way up out of it. \nNever cosign a loan and always ensure you check the rates.");
+//The else statement is for any other responses 
+
+    } else {
+        return null;
+    }
+    }
+
+}
