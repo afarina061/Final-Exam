@@ -4,36 +4,47 @@ package passwordprotection;
 import java.util.Scanner;
 
 public class Management {
+static Scanner scan = new Scanner(System.in);
 public static void main(String[] args) {
 //Using Scanner class to initialize input values 
 	//Used four different inputs for entire amounts
-	Scanner input = new Scanner (System.in);
-	Scanner input2 = new Scanner (System.in);
-	Scanner input3 = new Scanner(System.in);
-	Scanner balance = new Scanner (System.in);
+	Scanner input = new Scanner (System.in); Scanner input2 = new Scanner (System.in);
+	Scanner input3 = new Scanner(System.in); Scanner balance = new Scanner (System.in);
 //System print for opening lines, used line break with "\n"	
 	System.out.print("Would you like any assistance with your finances"
 		+ "\nEnter 1-4\n1 - Definitely\n2 - Somewhat\n3 - Not really\n4 - Not at all  ");
-//Initialize all variables: both Double and Int variables
-int answer = input3.nextInt() - 1;
-//Using a switch statement rather than a boolean response based on user's financial assistance needs
-switch (answer) {
-case 0: System.out.println("Continue on for great tips and inquiries!") ; break;
-case 1: System.out.println("If you would like some tips, continue!") ; break;
-case 2: System.out.println("Well, continue if you'd like...") ; break;
-case 3: System.out.println("Then why are you here? ") ; break;
-
-default: System.out.println("Error: invalid value") ; 
-System.exit(1);
-}
+//Initialize all variables: both Double and Integer variables
 //Println for continuing on the "finance manager"
+	int answer = input3.nextInt() - 1;
+	//Using a switch statement rather than a boolean response based on user's financial assistance needs
+		switch (answer) {
+			case 0: System.out.println("Continue on for great tips and inquiries!") ; break;
+			case 1: System.out.println("If you would like some tips, continue!") ; break;
+			case 2: System.out.println("Well, continue if you'd like...") ; break;
+			case 3: System.out.println("Then why are you here? ") ; break;
+
+			default: System.out.println("Error: invalid value") ; 
+			System.exit(1);
+		}
+ //String response so while, if, boolean response can terminate or continue code 
+ String reSponse = scan.nextLine();
+ while( true )   {   
+	 System.out.print("Do you wish to continue? (yes or no) ");
+     reSponse = scan.nextLine();
+     if (reSponse.equals("no"))
+     {
+         break; // exit loop
+     } 
+
+ 
 System.out.println("Welcome to your personalized Finance Helper");
 System.out.println("The first steps in your financial success depend on where YOUR money is going.");
 System.out.println("If you have any monthly subscriptions answer the next question"
-		+ "\nIf not, ENTER 0 for all blocks. ");
+		+ "\nIf not, ENTER 0 for all Subscription blocks. ");
 //Utilize an array to input value; String the variables user wishes to enter
 double[] amounts = new double[2];
 double[] weekincome = new double[2];
+
 String[] sub1 = new String[2];
 String[] sub2 = new String[2];
 String[] sub3 = new String[2];
@@ -46,13 +57,13 @@ for (int j = 0; j < amounts.length - 1; j++)
 	amounts[j]=balance.nextDouble();
 	System.out.println("Weekly paycheck: ");
 	weekincome[j] = balance.nextDouble();
-	System.out.println("Subscription 1 name and monthly cost: ");
+	System.out.println("Subscription 1 cost: ");
 	sub1[j] = balance.next();
-	System.out.println("Subscription 2 name and monthly cost: ");
+	System.out.println("Subscription 2 cost: ");
 	sub2[j] = balance.next();
-	System.out.println("Subscription 3 name and monthly cost: ");
+	System.out.println("Subscription 3 cost: ");
 	sub3[j] = balance.next();
-	System.out.println("Subscription 4 name and monthly cost: ");
+	System.out.println("Subscription 4 cost: ");
 	sub4[j] = balance.next();
 
 }
@@ -63,34 +74,38 @@ System.out.println("Enter your monthly income again: ");
 if(weekincome[0] >= 300)
 System.out.println("With your account balance being: $" + amounts[0] + ", and your weekly income being $\n" + weekincome[0] 
 		+ ", your subscriptions, \n" + sub1[0] + "\n" + sub2[0] + "\n"  + sub3[0] + "\n" + sub4[0] + "\naren't too hefty on your finances.");
-else if (weekincome[0] >= 200 && weekincome[0] <= 299)
+	else if (weekincome[0] >= 200 && weekincome[0] <= 299)
 System.out.println("With your account balance being: $" + amounts[0] + ", and your weekly income being $\n" + weekincome[0] 
 		+ ", your subscriptions, \n" + sub1[0] + "\n" + sub2[0] + "\n"  + sub3[0] + "\n" + sub4[0] + "\nhave some significance on your finances.");
-else if (weekincome[0] <= 199)  
+	else if (weekincome[0] <= 199)  
 System.out.println("With your account balance being: $" + amounts[0] + ", and your weekly income being $\n" + weekincome[0] 
 		+ ", your subscriptions, \n" + sub1[0] + "\n" + sub2[0] + "\n"  + sub3[0] + "\n" + sub4[0] + "\nare hurting your finances.");
+
 //Dividend yield ratio has a fixed value; the constant is DYR = 100, set to final double.
 final double DYR = 100;
 System.out.println("Do you currently have an investment?");
 System.out.println("if so, your dividend yield ratio matters.\nDo you know yours?");
 System.out.println("What is the value of your share: ");
 //Set variables for new if else statement 
-int shareprice = input.nextInt();
+	int shareprice = input.nextInt();
 System.out.println("What is the dividend for each share: ");
-double dividend = input2.nextDouble();
-double yieldratio = dividend / shareprice * DYR;
+	double dividend = input2.nextDouble();
+	double yieldratio = dividend / shareprice * DYR;
 System.out.println("The Dividend Yield Ratio is: " + Math.floor(yieldratio) + "%");
 //Run calculations of yield ratio
-if (yieldratio > 15.00 ) {
-System.out.println("Your investment seems to be in good hands");;
-} else { 
-System.out.println("Reconsider your investment if the company isn't well-established");
-}
+if (yieldratio >= 25.00 && yieldratio <= 20.00 ) {
+System.out.println("Your investment seems to be in good hands. The Company is probably well-established.");
+	} else if (yieldratio >= 19.00 && yieldratio <= 14.00) { 
+System.out.println("The company must be gaining some traction with a rate such as that; it is a fair investment.");
+	}
+		else { 
+System.out.println("The company might not be as established, reconsider your share in that company at the moment.");			
+		}
 number = new Scanner(System.in);
 //String variable passwords for Do-While Loop
-    String passwords;
+   String passwords;
 //Utilize a string for the Management database
-    int passrandom; {
+   int passrandom; {
 // Do while loop will output Management data and execute responses
     
     do
@@ -119,28 +134,26 @@ number = new Scanner(System.in);
      
     }while(passwords.equals("y"));
 //while loop is used here for continuation or termination
-   
-    }
+    	}
+ 			}  
+input.close(); input2.close(); input3.close(); balance.close();
 }
-
-  
 //Set strings for all  instances and variables
 public int numberManagement;
+
 //private because of personal data
 private String Password;
 private static Scanner number;
 
 
-//'this.' sets a variable equal to what it reads so the String can accept it
+
 //avoids conflict of naming methods and constructors
 public Management(String Password) {
- 
+	//'this.' sets a variable equal to what it reads so the String can accept it 
    this.Password = Password;
 }
 //Method public for String
 public String getPassword() {
    return Password;
-}
-
-
 	}
+		}
