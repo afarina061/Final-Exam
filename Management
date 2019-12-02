@@ -1,21 +1,18 @@
 # Final-Exam
 package passwordprotection;
-
 import java.util.Scanner;
-
 public class Management {
 static Scanner scan = new Scanner(System.in);
 public static void main(String[] args) {
 //Using Scanner class to initialize input values 
 	//Used four different inputs for entire amounts
-	Scanner input = new Scanner (System.in); Scanner input2 = new Scanner (System.in);
-	Scanner input3 = new Scanner(System.in); Scanner balance = new Scanner (System.in);
+	Scanner input = new Scanner (System.in); 
 //System print for opening lines, used line break with "\n"	
 	System.out.print("Would you like any assistance with your finances"
 		+ "\nEnter 1-4\n1 - Definitely\n2 - Somewhat\n3 - Not really\n4 - Not at all  ");
 //Initialize all variables: both Double and Integer variables
 //Println for continuing on the "finance manager"
-	int answer = input3.nextInt() - 1;
+	int answer = input.nextInt() - 1;
 	//Using a switch statement rather than a boolean response based on user's financial assistance needs
 		switch (answer) {
 			case 0: System.out.println("Continue on for great tips and inquiries!") ; break;
@@ -30,13 +27,12 @@ public static void main(String[] args) {
  String reSponse = scan.nextLine();
  while( true )   {   
 	 System.out.print("Do you wish to continue? (yes or no) ");
+     reSponse = reSponse.toLowerCase();
      reSponse = scan.nextLine();
      if (reSponse.equals("no"))
      {
          break; // exit loop
-     } 
-
- 
+     }  
 System.out.println("Welcome to your personalized Finance Helper");
 System.out.println("The first steps in your financial success depend on where YOUR money is going.");
 System.out.println("If you have any monthly subscriptions answer the next question"
@@ -54,17 +50,17 @@ String[] sub4 = new String[2];
 for (int j = 0; j < amounts.length - 1; j++)
 {
 	System.out.println("Enter your current account(s) balance: ");
-	amounts[j]=balance.nextDouble();
+	amounts[j]=input.nextDouble();
 	System.out.println("Weekly paycheck: ");
-	weekincome[j] = balance.nextDouble();
+	weekincome[j] = input.nextDouble();
 	System.out.println("Subscription 1 cost: ");
-	sub1[j] = balance.next();
+	sub1[j] = input.next();
 	System.out.println("Subscription 2 cost: ");
-	sub2[j] = balance.next();
+	sub2[j] = input.next();
 	System.out.println("Subscription 3 cost: ");
-	sub3[j] = balance.next();
+	sub3[j] = input.next();
 	System.out.println("Subscription 4 cost: ");
-	sub4[j] = balance.next();
+	sub4[j] = input.next();
 
 }
 System.out.println("Enter your monthly income again: ");
@@ -89,16 +85,13 @@ System.out.println("What is the value of your share: ");
 //Set variables for new if else statement 
 	int shareprice = input.nextInt();
 System.out.println("What is the dividend for each share: ");
-	double dividend = input2.nextDouble();
+	double dividend = input.nextDouble();
 	double yieldratio = dividend / shareprice * DYR;
 System.out.println("The Dividend Yield Ratio is: " + Math.floor(yieldratio) + "%");
 //Run calculations of yield ratio
-if (yieldratio >= 25.00 && yieldratio <= 20.00 ) {
+if (yieldratio >= 20.00) {
 System.out.println("Your investment seems to be in good hands. The Company is probably well-established.");
-	} else if (yieldratio >= 19.00 && yieldratio <= 14.00) { 
-System.out.println("The company must be gaining some traction with a rate such as that; it is a fair investment.");
-	}
-		else { 
+} else { 
 System.out.println("The company might not be as established, reconsider your share in that company at the moment.");			
 		}
 number = new Scanner(System.in);
@@ -136,8 +129,7 @@ number = new Scanner(System.in);
 //while loop is used here for continuation or termination
     	}
  			}  
-input.close(); input2.close(); input3.close(); balance.close();
-}
+input.close();}
 //Set strings for all  instances and variables
 public int numberManagement;
 
